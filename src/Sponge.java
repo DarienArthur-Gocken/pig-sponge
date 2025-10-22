@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Sponge {
 
   /*
@@ -33,7 +35,29 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    String newSentence = "";
+    String[] wordList = sentence.split(" ");
+
+    for(int i = 0; i < wordList.length; i++) {
+        String word = wordList[i];
+        String newWord = "";
+        
+        for(int j = 0; j < word.length(); j++) {
+            char c = word.charAt(j);
+            if(j % 2 == 0) {
+                newWord += Character.toLowerCase(c);
+            } else {
+                newWord += Character.toUpperCase(c);
+            }
+        }
+        
+        newSentence += newWord;
+        if(i < wordList.length - 1) {
+            newSentence += " ";
+        }
+    }
+
+    return newSentence;
   }
 
 
