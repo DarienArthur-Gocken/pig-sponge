@@ -26,7 +26,20 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String pigLatin = "";
+        String[] array = sentence.split(" ");
+        for(String word : array) {
+            char firstLetter = word.charAt(0);
+            if(firstLetter == 'a' || firstLetter == 'e' || firstLetter =='i' || firstLetter == 'o' || firstLetter == 'u') {
+                pigLatin += word;
+            } else {
+                word = word.substring(1, word.length());
+                word += firstLetter + "ay";
+                pigLatin += word;
+            }
+            pigLatin += " ";
+        }
+        return pigLatin.trim();
     }
 
 
